@@ -16,14 +16,26 @@ a{
     text-decoration: none;
 }
 
+ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
 p, h1, h2, h3{
     margin: 0px;
 }
 
 p{
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 1.3;
 
+}
+
+.header{
+    display: grid;
+    justify-items: center;
+    gap: 50px;
 }
 .menu{
     display: flex;
@@ -33,18 +45,23 @@ p{
 }
 
 .menu a{
+    display: block;
     background: #ffffff;
-    padding: 15px 30px;
+    padding: 1rem 2rem;
     border-radius: 4px;
     color: #000000;
     text-transform: uppercase;
+    border: 2px solid transparent;
 }
-
+.menu a:hover{
+    border-color: #e21;
+}
 .conteudo{
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 1000px;
 }
+
 
 .introducao{
     background: #fff;
@@ -56,7 +73,11 @@ p{
     gap: 20px;
     justify-items: end;
 }
-.detalhe{
+.introducao h2{
+    font-size: 2rem;
+}
+.introducao::before{
+    content: "";
    width: 60px;
    height: 4px;
    background: #e21;
@@ -65,26 +86,41 @@ p{
    right: -30px;
    
 }
+.introducao-cover img{
+    object-fit: cover;
+    height: 100%;
+}
 .botao{
     background: #e21;
     color: #fff;
-    padding: 15px 30px;
+    padding: 1rem 2rem;
     border-radius: 4px;
     text-transform: uppercase;
 }
+.botao:hover{
+    background: #900;
+}
 .subtitulo{
-   font-size: 64px;
+   font-size: 4rem;
    text-transform: uppercase;
    color:rgba(0, 0, 0, 0.2) ; 
    text-align: right;
    padding: 40px;
    align-self: center;
+   background-image: url("../img/onda.svg");
 }
 
 .vantagens{
     background: #fff;
     padding: 40px;
 
+}
+
+.vantagens li:hover{
+    border-left: 4px solid #e21;
+}
+.vantagens li:nth-child(odd){
+    background: #f7f7f7;
 }
 li{
     padding: 4px;
@@ -95,4 +131,39 @@ li{
     text-align: center;
     padding: 40px;
     box-sizing: border-box;
+}
+
+@media (max-width: 1000px){
+    .conteudo-vantagens{
+        grid-template-columns: 1fr;
+    }
+    .subtitulo{
+        text-align: center;
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 600px){
+    body{
+        gap: 30px;
+        margin-top: 20px;
+    }
+    .conteudo{
+        grid-template-columns: 1fr;
+    }
+    .introducao{
+        text-align: left;
+        justify-items: start;
+    }
+    .introducao::before{
+        display: none;
+    }
+    .subtitulo{
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 350px){
+    .subtitulo{
+        font-size: 1.5rem;
+    }
 }
